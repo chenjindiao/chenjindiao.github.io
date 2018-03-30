@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>hexo备份源文件 | imjd的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="背景 hexo deploy发布默认只有public文件夹，即生成的html网页文件，并不包括md源文件。 这样就需要自己保存好源文件，并且还要保存主题等文件，避免文件丢失和可以随时发布。  方案 使用hexo-deployer-git插件，发布同时同步源文件到GitHub。 在github.io上创建分支src，将源文件一同上传。 本人使用了如下配置  123456789101112# _con">
+<meta name="keywords" content="hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo备份源文件">
+<meta property="og:url" content="https://chenjindiao.github.io/2018/03/06/hexo备份源文件/index.html">
+<meta property="og:site_name" content="imjd的博客">
+<meta property="og:description" content="背景 hexo deploy发布默认只有public文件夹，即生成的html网页文件，并不包括md源文件。 这样就需要自己保存好源文件，并且还要保存主题等文件，避免文件丢失和可以随时发布。  方案 使用hexo-deployer-git插件，发布同时同步源文件到GitHub。 在github.io上创建分支src，将源文件一同上传。 本人使用了如下配置  123456789101112# _con">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-05T18:49:20.320Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo备份源文件">
+<meta name="twitter:description" content="背景 hexo deploy发布默认只有public文件夹，即生成的html网页文件，并不包括md源文件。 这样就需要自己保存好源文件，并且还要保存主题等文件，避免文件丢失和可以随时发布。  方案 使用hexo-deployer-git插件，发布同时同步源文件到GitHub。 在github.io上创建分支src，将源文件一同上传。 本人使用了如下配置  123456789101112# _con">
+  
+    <link rel="alternate" href="/atom.xml" title="imjd的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">imjd的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">技术博客</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://chenjindiao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-hexo备份源文件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/06/hexo备份源文件/" class="article-date">
+  <time datetime="2018-03-05T16:15:03.000Z" itemprop="datePublished">2018-03-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      hexo备份源文件
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ul>
+<li>hexo deploy发布默认只有public文件夹，即生成的html网页文件，并不包括md源文件。</li>
+<li>这样就需要自己保存好源文件，并且还要保存主题等文件，避免文件丢失和可以随时发布。</li>
+</ul>
+<h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><ul>
+<li>使用<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">hexo-deployer-git</a>插件，发布同时同步源文件到GitHub。</li>
+<li>在github.io上创建分支src，将源文件一同上传。</li>
+<li>本人使用了如下配置</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># _config.yaml</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  - type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">    repo:</span> <span class="string">git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git</span></span><br><span class="line"><span class="attr">    branch:</span> <span class="string">master</span></span><br><span class="line"><span class="attr">  - type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">    repo:</span> <span class="string">git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git</span></span><br><span class="line"><span class="attr">    branch:</span> <span class="string">src</span></span><br><span class="line"><span class="attr">    extend_dirs:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">    ignore_hidden:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">    ignore_pattern:</span></span><br><span class="line"><span class="attr">        public:</span> <span class="string">.</span></span><br></pre></td></tr></table></figure>
+<h2 id="hexo-deployer-git官方文档"><a href="#hexo-deployer-git官方文档" class="headerlink" title="hexo-deployer-git官方文档"></a>hexo-deployer-git官方文档</h2><h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>If you want to use the latest features of hexo-deployer-git, you may install it from github:</p>
+<ul>
+<li><p>for npm version under 4</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install git+git@github.com:hexojs/hexo-deployer-git.git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>for npm version 5</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install git+ssh://git@github.com:hexojs/hexo-deployer-git.git --save</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h3><p>You can configure this plugin in <code>_config.yml</code>.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># You can use this:</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">&lt;repository</span> <span class="string">url&gt;</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">[branch]</span></span><br><span class="line"><span class="attr">  message:</span> <span class="string">[message]</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">[git</span> <span class="string">user]</span></span><br><span class="line"><span class="attr">  email:</span> <span class="string">[git</span> <span class="string">email]</span></span><br><span class="line"><span class="attr">  extend_dirs:</span> <span class="string">[extend</span> <span class="string">directory]</span></span><br><span class="line"><span class="attr">  ignore_hidden:</span> <span class="literal">false</span> <span class="comment"># default is true</span></span><br><span class="line"><span class="attr">  ignore_pattern:</span> <span class="string">regexp</span>  <span class="comment"># whatever file that matches the regexp will be ignored when deploying</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># or this:</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  message:</span> <span class="string">[message]</span></span><br><span class="line"><span class="attr">  repo:</span></span><br><span class="line"><span class="attr">    github:</span> <span class="string">&lt;repository</span> <span class="string">url&gt;,[branch]</span></span><br><span class="line"><span class="attr">    coding:</span> <span class="string">&lt;repository</span> <span class="string">url&gt;,[branch]</span></span><br><span class="line"><span class="attr">  extend_dirs:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">[extend</span> <span class="string">directory]</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">[another</span> <span class="string">extend</span> <span class="string">directory]</span></span><br><span class="line"><span class="attr">  ignore_hidden:</span></span><br><span class="line"><span class="attr">    public:</span> <span class="literal">false</span></span><br><span class="line">    <span class="string">[extend</span> <span class="string">directory]:</span> <span class="literal">true</span></span><br><span class="line">    <span class="string">[another</span> <span class="string">extend</span> <span class="string">directory]:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  ignore_pattern:</span></span><br><span class="line">    <span class="string">[folder]:</span> <span class="string">regexp</span>  <span class="comment"># or you could specify the ignore_pattern under a certain directory</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>repo</strong>: Repository URL</li>
+<li><strong>branch</strong>: Git branch to deploy the static site to</li>
+<li><strong>message</strong>: Commit message. </li>
+<li><strong>name</strong> and <strong>email</strong>: User info for committing the change, overrides global config. This info is independent of git login.</li>
+<li><strong>extend_dirs</strong>: Add some extensions directory to publish. e.g <code>demo</code>, <code>examples</code></li>
+<li><strong>ignore_hidden</strong> (Boolean|Object): whether ignore hidden files to publish. the github requires the <code>.nojekyll</code> in root.<ul>
+<li>Boolean: for all dirs.</li>
+<li>Object: for public dir and extend dir:<ul>
+<li><code>public</code>: the public dir defaults.</li>
+<li>[extend directory]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>ignore_pattern</strong> (Object|RegExp): Choose the ignore pattern when deploying<ul>
+<li>RegExp: for all dirs.</li>
+<li>Object: specify the ignore pattern under certain directory. For example, if you want to push the source files and generated files at the same time to two different branches. The option should be like<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># _config.yaml</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  - type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">    repo:</span> <span class="string">git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git</span></span><br><span class="line"><span class="attr">    branch:</span> <span class="string">master</span></span><br><span class="line"><span class="attr">  - type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">    repo:</span> <span class="string">git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git</span></span><br><span class="line"><span class="attr">    branch:</span> <span class="string">src</span></span><br><span class="line"><span class="attr">    extend_dirs:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">    ignore_hidden:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">    ignore_pattern:</span></span><br><span class="line"><span class="attr">        public:</span> <span class="string">.</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="How-it-works"><a href="#How-it-works" class="headerlink" title="How it works"></a>How it works</h3><p><code>hexo-deployer-git</code> works by generating the site in <code>.deploy_git</code> and <em>force pushing</em> to the repo(es) in config.<br>If <code>.deploy_git</code> does not exist, a repo will initialized (<code>git init</code>).<br>Otherwise the curent repo (with its commit history) will be used.</p>
+<p>Users can clone the deployed repo to <code>.deploy_git</code> to keep the commit history.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone &lt;gh-pages repo&gt; .deploy_git</span><br></pre></td></tr></table></figure></p>
+<h3 id="Reset"><a href="#Reset" class="headerlink" title="Reset"></a>Reset</h3><p>Remove <code>.deploy_git</code> folder.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf .deploy_git</span><br></pre></td></tr></table></figure>
+<h3 id="License"><a href="#License" class="headerlink" title="License"></a>License</h3><p>MIT</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://chenjindiao.github.io/2018/03/06/hexo备份源文件/" data-id="cjfd7zspi00041yqsszv4oilm" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/06/github-io搭建个人博客/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          github.io搭建个人博客
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/06/hexo环境搭建/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">hexo环境搭建</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/06/github-io搭建个人博客/">github.io搭建个人博客</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/06/hexo备份源文件/">hexo备份源文件</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/06/hexo环境搭建/">hexo环境搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/05/hexo-first-post/">My New Post</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/05/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 imjd<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
